@@ -1,0 +1,27 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <!-- plugin on customer login -->
+    <type name="Magento\Customer\Model\AccountManagement">
+        <plugin name="customernumber" type="Phpro\Customernumber\Model\Plugin\AccountManagement" sortOrder="10" />
+    </type>
+
+
+    <!-- plugin on customer data load -->
+    <!--<type name="\Magento\Customer\Api\Data\CustomerInterface">
+        <plugin name="customeroverride" type="Phpro\Loginquotehandler\Model\Plugin\CustomerInterface" sortOrder="10" />
+    </type>-->
+
+    <!-- override a Magento event -->
+    <type name="Magento\Framework\Event\Manager">
+        <plugin name="overrideEvent" type="Phpro\Loginquotehandler\Model\Plugin\OverrideEvent" sortOrder="10" />
+    </type>
+
+    <!-- create installer to install attribute -->
+    <type name="Magento\Framework\Module\Updater\SetupFactory">
+        <arguments>
+            <argument name="resourceTypes" xsi:type="array">
+                <item name="customernumber_setup" xsi:type="string">Magento\Customer\Model\Resource\Setup</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

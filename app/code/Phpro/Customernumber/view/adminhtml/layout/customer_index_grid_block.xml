@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Core/etc/layout_single.xsd">
+    <referenceBlock name="admin.block.customer.grid.columnSet">
+        <block class="Magento\Backend\Block\Widget\Grid\Column" as="customernumber">
+            <arguments>
+                <argument name="header" xsi:type="string" translate="true">Customer Number</argument>
+                <argument name="index" xsi:type="string">customernumber</argument>
+            </arguments>
+        </block>
+    </referenceBlock>
+</layout>
